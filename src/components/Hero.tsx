@@ -9,7 +9,7 @@ interface Props{
 export const Hero:FC<Props> = () => {
   return (
     <div className='flex justify-between'>
-      <div className='flex-grow'>
+      <div className=''>
         text
       </div>
       <div className='w-1/2'>
