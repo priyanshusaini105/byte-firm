@@ -15,29 +15,39 @@ export default function Navbar() {
         </div>
 
         <div className="items mt-12 mb-10 ml-[45%]   w-16">
-          {istoggle
-            ? <div className='flex flex-col gap-2' onClick={() => {
-              settoggle(false)
-            }}>
-              <div className='nav-line' />
-              <div className='nav-line' />
-              <div className='nav-line' />
-            </div> :
-            <div className=' absolute top-0 left-0 flex flex-col w-[100vw] h-[100vh]  '>
-              <div className='flex flex-col relative mt-16 ml-[80vw]  h-16 w-16 ' onClick={() => {
-                settoggle(true)
-              }}>
-                <div className='nav-line-2' />
-                <div className='nav-line-1' />
-              </div>
-              <div className='relative w-full h-[70vh] bg-black text-white mt-20 flex flex-col gap-20'> 
+          <div id='line' className='inline-flex flex-col gap-1' onClick={() => {
+            settoggle(() => {
+              return (
+                !istoggle
+              )
+            })
+            var line = document.getElementById("line")
+            var line1 = document.getElementById("line1")
+            var line2 = document.getElementById("line2")
+            var line3 = document.getElementById("line3")
+            // line?.classList.toggle("gap-1")
+            line1?.classList.toggle("nav-line-1")
+            line2?.classList.toggle("nav-line-2")
+            line3?.classList.toggle("nav-line-2")
+          }}>
+            <div id='line1' className='nav-line' />
+            <div id='line2' className='nav-line' />
+            <div id='line3' className='nav-line' />
+          </div>
+          <div>
+            {istoggle
+              ? <div></div> :
+              <div className=' absolute z-10 left-0 flex flex-col w-[100vw] h-[70vh] mt-20 '>
+                <div className='relative w-full h-full bg-black text-white mt-20 flex flex-col gap-20'>
                   <div className='h-10 text-4xl font-bold text-center '>Home</div>
                   <div className='h-10 text-4xl font-bold text-center '>About</div>
                   <div className='h-10 text-4xl font-bold text-center '>Work</div>
                   <div className='h-10 text-4xl font-bold text-center '>Contact</div>
+                </div>
               </div>
-            </div>
-          }
+            }
+          </div>
+
 
         </div>
       </div>
