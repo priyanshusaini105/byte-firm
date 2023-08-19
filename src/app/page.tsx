@@ -1,7 +1,9 @@
-import Image from 'next/image'
+import { Hero } from "@/components";
 
 export default function Home() {
   return (
-    <div className='bg-white'></div>
+    <main className="flex"> 
+      <Hero/>
+    </main>
   )
 }
