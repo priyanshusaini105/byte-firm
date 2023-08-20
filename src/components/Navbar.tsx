@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <html>
       <div className="navbar flex w-full   ">
-        <div className='absolute top-0 left-0 flex  w-full px-6 py-4  h-24 bg-primary-50 shadow-[0_3px_10px_rgb(0,0,0,0.2)] '>
+        <div className='fixed top-0 left-0 flex  w-full px-6 py-4  h-24 bg-primary-50 shadow-[0_3px_10px_rgb(0,0,0,0.2)] '>
           <div className='flex'>
             <div className="logo w-16 h-16 bg-primary-50 ">
               <Image src="/logo.png" width={80} height={80} alt="" />
