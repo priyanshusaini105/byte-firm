@@ -1,14 +1,15 @@
 "use client";
-import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import Link from "next/link";
 import React, { FC } from "react";
+const Fade = require( 'react-reveal/Fade');
 
 interface Props {}
 
 export const Hero: FC<Props> = () => {
   return (
     <section className="flex justify-between w-full flex-col md:flex-row md:p-12 p-8">
+      <Fade top>
       <div className="w-full p-4 text-white relative">
         <h1 className="text-4xl md:text-5xl lg:text-6xl block font-bold text-primary-700">
           Transforming <span className="text-accent-400">Ideas</span>
@@ -25,8 +26,8 @@ export const Hero: FC<Props> = () => {
           React Native developers, turning your concepts into stunning,
           functional apps and websites.
         </p>
-        {/* cto button */}
 
+        {/* cto button */}
         <Link href="" className="cto-btn">
           Request a Quote
         </Link>
@@ -36,8 +37,9 @@ export const Hero: FC<Props> = () => {
         <Lottie
           animationData={require("public/heroLottie.json")}
           className=""
-        />
+          />
       </div>
+          </Fade>
     </section>
   );
 };
