@@ -2,8 +2,9 @@ import { Hero } from "@/components";
 
 export default function Home() {
   return (
-    <main className="flex"> 
+    <main className=""> 
       <Hero/>
+      <div className="h-48 w-full border"></div>
     </main>
   )
 }

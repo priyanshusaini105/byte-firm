@@ -8,7 +8,7 @@ interface Props {}
 
 export const Hero: FC<Props> = () => {
   return (
-    <section className="flex justify-between w-full flex-col md:flex-row md:p-12 p-8 mt-20">
+    <section className="flex justify-between w-full flex-col md:flex-row md:p-12 p-8">
       <Fade top>
       <div className="w-full p-4 text-white relative">
         <h1 className="text-4xl md:text-5xl lg:text-6xl block font-bold text-primary-700">
