@@ -1,9 +1,11 @@
-import { Hero } from "@/components";
+import { Hero , Projects } from "@/components";
+
 
 export default function Home() {
   return (
-    <main className="flex"> 
+    <main className="flex flex-col  "> 
       <Hero/>
+      <Projects/>
     </main>
   )
 }
