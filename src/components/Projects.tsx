@@ -48,8 +48,8 @@ export function Projects() {
                 </div>
                 <div className=' grid md:grid-cols-2 lg:grid-cols-3 gap-20'>
 
-                
-                <Item image="/flipkartmern.png" name="Next JS app" id = "info1"/>
+                    
+                <Item image="/flipkartmern.png" name="Next JS app" id = "info1"/>  
                 <Item image="/flipkartmern.png" name="Next JS app" id = "info2" />
                 <Item image="/flipkartmern.png" name="Next JS app" id = "info3" />
                 <Item image="/flipkartmern.png" name="Next JS app"  id = "info4"/>
