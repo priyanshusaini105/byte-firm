@@ -35,7 +35,7 @@ export const Hero: FC<Props> = () => {
 
         <div className="w-full">
           <Lottie
-            animationData={require("public/heroLottie.json")}
+            animationData={require("public/lottie/heroLottie.json")}
             className=""
           />
         </div>

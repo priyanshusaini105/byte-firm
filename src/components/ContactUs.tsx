@@ -21,7 +21,7 @@ export const ContactUs: FC<Props> = () => {
       <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
         <div className="lg:w-2/3 md:w-1/2 bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
           <Lottie
-            animationData={require("public/contactUs.json")}
+            animationData={require("public/lottie/contactUs.json")}
             className="absolute inset-0 w-full h-full"
             />
           <div className="bg-white relative flex flex-wrap py-6 rounded shadow-md">
