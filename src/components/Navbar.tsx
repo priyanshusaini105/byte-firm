@@ -17,8 +17,7 @@ export function Navbar() {
   const handleScroll = () => {
     if (!navRef.current) return;
     if (window.scrollY < 130) {
-      console.log(window.scrollY)
-      navRef.current.style.transform = `translateY(-${window.scrollY}px)`;
+      navRef.current.style.transform = `translateY(-${window.scrollY<2?0:68}px)`;
       navRef.current.classList.remove('shadow-lg');
     } else {
       navRef.current.style.transform = `translateY(0px)`;
