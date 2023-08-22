@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <main className=""> 
       <Hero/>
-      <div className="h-48 w-full border"></div>
+      <div className="h-64 w-full border"></div>
     </main>
   )
 }
