@@ -13,19 +13,19 @@ export function Navbar() {
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
   const handleScroll = () => {
-    console.log(window.scrollY);
     if (!navRef.current) return;
-    if (window.scrollY > 100) {
-      navRef.current.style.position = "sticky";
+    if (window.scrollY < 130) {
+      console.log(window.scrollY)
+      navRef.current.style.transform = `translateY(-${window.scrollY}px)`;
       setIsSlide(true);
     } else {
-      navRef.current.style.position = "relative";
+      navRef.current.style.transform = `translateY(0px)`;
       setIsSlide(false);
     }
   };
 
-  useEffect(() => {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
@@ -67,9 +67,8 @@ export function Navbar() {
   }, [isAsideOpen]);
 
   return (
-    <Slide when={isSlide} top>
       <nav
-        className="navbar flex w-full justify-between w-full px-4 py-2 items-center md:px-6 top-0 bg-primary-50/40 z-50 fixed backdrop-blur-lg bg-blur"
+        className="navbar flex w-full justify-between w-full px-4 py-2 items-center md:px-6 top-0 bg-primary-50/40 z-50 fixed backdrop-blur-lg bg-blur duration-300 ease-in-out"
         ref={navRef}
       >
         {/* logo */}
@@ -87,8 +86,8 @@ export function Navbar() {
           onClick={() => setIsAsideOpen(false)}
         />
         <aside
-          className={`h-screen shadow-lg fixed w-72 fixed top-0 right-0 bg-primary-800 translate-x-72 duration-300 ease-in-out items-center flex justify-center ${
-            isAsideOpen && " translate-x-0"
+          className={`h-screen shadow-lg fixed w-72 fixed top-0 right-0 bg-primary-800 duration-300 ease-in-out items-center flex justify-center ${
+            isAsideOpen ? " translate-x-0":' translate-x-72'
           }`}
         >
           <ul className="flex gap-6 flex-col">
@@ -146,6 +145,5 @@ export function Navbar() {
           })}
         </ul>
       </nav>
-    </Slide>
   );
 }
