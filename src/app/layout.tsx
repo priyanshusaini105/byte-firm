@@ -1,9 +1,10 @@
 import { Navbar } from '@/components'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Nunito,Montserrat } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+const montserrat=Montserrat({subsets:['latin'],variable:'--font-display'});
+const nunito=Nunito({subsets:['latin'],variable:'--font-body'})
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -18,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       
-      <body className={`${inter.className} selection:text-primary-200 selection:bg-primary-800 bg-primary-50`}><Navbar/>{children}</body>
+      <body className={`${montserrat.variable} ${nunito.variable} font-body selection:text-primary-200 selection:bg-primary-800 bg-primary-50`}><Navbar/>{children}</body>
     </html>
   )
 }

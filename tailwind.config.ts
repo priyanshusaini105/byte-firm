@@ -52,6 +52,10 @@ const config: Config = {
           900: "#7A2E00",
         },
       },
+      fontFamily: {
+        'display':'var(--font-display), -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue',
+        'body': 'var(--font-body), -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue',
+      }
     },
   },
   plugins: [],
