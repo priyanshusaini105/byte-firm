@@ -3,7 +3,7 @@ import { Hero , Projects } from "@/components";
 
 export default function Home() {
   return (
-    <main className="flex flex-col  "> 
+    <main className=""> 
       <Hero/>
       <Projects/>
     </main>
