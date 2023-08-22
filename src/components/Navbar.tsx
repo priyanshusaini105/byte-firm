@@ -19,10 +19,10 @@ export function Navbar() {
     if (window.scrollY < 130) {
       console.log(window.scrollY)
       navRef.current.style.transform = `translateY(-${window.scrollY}px)`;
-      setIsSlide(true);
+      navRef.current.classList.remove('shadow-lg');
     } else {
       navRef.current.style.transform = `translateY(0px)`;
-      setIsSlide(false);
+      navRef.current.classList.add('shadow-lg');
     }
   };
 
