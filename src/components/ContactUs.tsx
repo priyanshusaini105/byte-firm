@@ -1,5 +1,6 @@
 import Lottie from "lottie-react";
 import React, { FC } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 interface Props {}
 
@@ -11,6 +12,10 @@ type FormValues = {
 };
 
 export const ContactUs: FC<Props> = () => {
+
+    const { register, handleSubmit } = useForm<FormValues>()
+    const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data)
+
   return (
     <section className="text-gray-600 body-font relative">
       <div className="container px-5 py-24 mx-auto flex sm:flex-nowrap flex-wrap">
@@ -56,8 +61,7 @@ export const ContactUs: FC<Props> = () => {
             </label>
             <input
               type="text"
-              id="name"
-              name="name"
+              {...register("name")}
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
           </div>
@@ -66,8 +70,17 @@ export const ContactUs: FC<Props> = () => {
               Email
             </label>
             <input
-              type="email"
-              id="email"
+              {...register("email")}
+              name="email"
+              className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+            />
+          </div>
+          <div className="relative mb-4">
+            <label htmlFor="email" className="leading-7 text-sm text-gray-600">
+              Email
+            </label>
+            <input
+              {...register("subject")}
               name="email"
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
             />
@@ -80,8 +93,7 @@ export const ContactUs: FC<Props> = () => {
               Message
             </label>
             <textarea
-              id="message"
-              name="message"
+              {...register("message")}
               className="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
               defaultValue={""}
             />
