@@ -24,7 +24,6 @@ export function Navbar() {
       }
     });
   }, []);
-  
 
   const navItems = [
     {
@@ -49,51 +48,58 @@ export function Navbar() {
     },
   ];
 
-  const handleAsideChange = (e:ChangeEvent<HTMLInputElement>) => {
-    setIsAsideOpen(isOpen=>!isOpen);
+  const handleAsideChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setIsAsideOpen((isOpen) => !isOpen);
   };
 
   return (
     <Slide when={isSlide} top>
       <nav
-        className="navbar flex w-full justify-between w-full px-4 py-2 items-center md:px-6 top-0 bg-primary-50/40 z-50 relative backdrop-blur-lg bg-blur"
+        className="navbar flex w-full justify-between w-full px-4 py-2 items-center md:px-6 top-0 bg-primary-50/40 z-50 fixed backdrop-blur-lg bg-blur"
         ref={navRef}
       >
-        <div className="">
-          <Image src="/logo.png" width={200} height={100} alt="" />
-        </div>
+        {/* logo */}
+        <Image src="/logo.png" width={200} height={100} alt="" />
 
         {/* for aisde nav */}
-        <Hamburgur isAsideOpen={isAsideOpen} onChange={handleAsideChange} className='z-50'/>
-          <aside className={`h-screen fixed w-72 fixed top-0 right-0 bg-primary-800 traslate-x-72 ${isAsideOpen&&''}`}>
-          <ul className="flex gap-5 flex-col">
-          {navItems.map((item) => {
-            const isActive = item.url === pathname;
-            return (
-              <li key={item.id}>
-                <Link
-                  href={item.url}
-                  className={`text-xl duration-300 ease-in-out hover:tracking-wide inline-block ${
-                    isActive
-                      ? "text-accent-500 font-semibold hover:text-accent-700"
-                      : "text-primary-600 hover:text-primary-800"
-                  }`}
-                >
-                  <span className="relative inline-block group ">
-                    {item.label}
-                    <span
-                      className={`absolute bottom-0 left-0 w-full h-0.5 bg-accent-500 transform origin-left scale-x-0 group-hover:scale-x-100  transition-transform ${
-                        isActive ? "scale-x-100" : ""
+          <Hamburgur
+            isAsideOpen={isAsideOpen}
+            onChange={handleAsideChange}
+            className="z-50"
+          />
+          <div className='w-[500vw] bg-black/40 fixed m-0 h-0 h-[500vh] bg-blur backdrop-blur-lg -translate-x-16 duration-300 ease-in-out'  style={isAsideOpen?{display:'flex'}:{display:'none'}} onClick={()=>setIsAsideOpen(false)}/>
+          <aside
+            className={`h-screen fixed w-72 fixed top-0 right-0 bg-primary-800 translate-x-72 duration-300 ease-in-out items-center flex justify-center ${
+              isAsideOpen && " translate-x-0"
+            }`}
+          >
+            <ul className="flex gap-6 flex-col">
+              {navItems.map((item) => {
+                const isActive = item.url === pathname;
+                return (
+                  <li key={item.id}>
+                    <Link
+                      href={item.url}
+                      className={`text-2xl duration-300 ease-in-out hover:tracking-wide inline-block ${
+                        isActive
+                          ? "text-accent-500 font-semibold hover:text-accent-700"
+                          : "text-primary-500 hover:text-primary-400"
                       }`}
-                    ></span>
-                  </span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
+                    >
+                      <span className="relative inline-block group ">
+                        {item.label}
+                        <span
+                          className={`absolute bottom-0 left-0 w-full h-0.5 bg-accent-500 transform origin-left scale-x-0 group-hover:scale-x-100  transition-transform ${
+                            isActive ? "scale-x-100" : ""
+                          }`}
+                        ></span>
+                      </span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </aside>
-
         {/* long view for desktop */}
         <ul className="md:flex gap-5 hidden">
           {navItems.map((item) => {

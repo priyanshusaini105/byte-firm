@@ -52,7 +52,7 @@ export const Hamburgur:FC<Props> = ({isAsideOpen,className,onChange}) => {
           }
         `}
       </style>
-      <label htmlFor="check" className={"flex fixed flex-col z-100 w-16 right-0 top-6 "+className} >
+      <label htmlFor="check" className={"flex fixed flex-col z-100 w-16 right-0 top-4 "+className} >
         <input type="checkbox" id="check"  checked={isAsideOpen} onChange={onChange} />
         <span className='hamburgur-span'/>
         <span  className='hamburgur-span'/>
