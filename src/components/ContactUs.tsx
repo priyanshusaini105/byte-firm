@@ -60,6 +60,7 @@ export const ContactUs: FC<Props> = () => {
               />
               {errors.name && <span className="text-red-500 text-xs mt-1">Name is required and must be at least 3 characters</span>}
             </div>
+            {/* email */}
             <div className="relative mb-4">
             <label htmlFor="email" className="leading-7 text-sm text-gray-700 flex items-end gap-2">
             <Image src='/icons/email-48.png'
@@ -74,7 +75,7 @@ export const ContactUs: FC<Props> = () => {
               {...register("email")}
               name="email"
               placeholder='Enter your Email'
-              className={`w-full bg-white rounded border shadow-inner ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:border-red-500 focus:ring-2 focus:ring-red-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
+              className={`w-full bg-white rounded border shadow-inner ${errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-300'} text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
             />
             {errors.email && <span className="text-red-500">Email is required</span>}
           </div>
@@ -122,8 +123,14 @@ export const ContactUs: FC<Props> = () => {
             />
             {errors.message && <span className="text-red-500">Message is required</span>}
           </div>
-            <button className="btn">
+            <button className="btn flex items-center gap-2 justify-center">
               Send Message
+              <Image src='/icons/send-64.png'
+                    className='brightness-0 invert'
+                    width={24}
+                    height={24}
+                    alt='Send Message'
+                />
             </button>
           </form>
         </div>
