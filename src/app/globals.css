@@ -2,12 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base{
+  img{
+    -webkit-user-drag: none;
+    -khtml-user-drag: none;
+    -moz-user-drag: none;
+    -o-user-drag: none;
+    user-drag: none;
+    @apply select-none
+  }
+}
+
 @layer components{
 .btn {
    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
-  @apply bg-accent-400 w-48 text-white inline-block relative text-center z-10 rounded-xl font-bold p-3 ease-in duration-300 
+  @apply bg-accent-400 w-48 text-white inline-block relative text-center z-10 rounded-xl font-bold p-3 ease-in duration-300 active:shadow-sm
 }
 .btn:after {
   content: "";
@@ -31,8 +42,13 @@
 .btn:hover:after {
   @apply w-full left-0
 }
-
 .hamburgur-span{
   @apply bg-accent-300 rounded-lg ease-in duration-300
+}
+
+.shadow-3d{
+  box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
 }
 }

@@ -85,7 +85,7 @@ export function Navbar() {
           onClick={() => setIsAsideOpen(false)}
         />
         <aside
-          className={`h-screen shadow-lg fixed w-72 fixed top-0 right-0 bg-primary-800 duration-300 ease-in-out items-center flex justify-center ${
+          className={`h-screen shadow-xl fixed w-72 fixed top-0 right-0 bg-primary-800 duration-300 ease-in-out items-center flex justify-center ${
             isAsideOpen ? " translate-x-0":' translate-x-72'
           }`}
         >
