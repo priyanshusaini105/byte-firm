@@ -18,10 +18,10 @@ export function Navbar() {
     if (!navRef.current) return;
     if (window.scrollY < 130) {
       navRef.current.style.transform = `translateY(-${window.scrollY<2?0:68}px)`;
-      navRef.current.classList.remove('shadow-lg');
+      navRef.current.classList.remove('shadow-md');
     } else {
       navRef.current.style.transform = `translateY(0px)`;
-      navRef.current.classList.add('shadow-lg');
+      navRef.current.classList.add('shadow-md');
     }
   };
 
@@ -71,7 +71,7 @@ export function Navbar() {
         ref={navRef}
       >
         {/* logo */}
-        <Image src="/logo.png" width={200} height={100} alt="" />
+        <Image src="/images/logo.png" width={200} height={100} alt="" />
 
         {/* for aisde nav */}
         <Hamburgur

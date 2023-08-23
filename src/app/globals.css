@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 @layer components{
-.cto-btn {
+.btn {
    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
   @apply bg-accent-400 w-48 text-white inline-block relative text-center z-10 rounded-xl font-bold p-3 ease-in duration-300 
 }
-.cto-btn:after {
+.btn:after {
   content: "";
   direction: rtl;
   box-shadow:
@@ -21,14 +21,14 @@
     @apply absolute w-0 h-full top-0 left-0 z-[-1]
 }
 
-.cto-btn:hover:after {
+.btn:hover:after {
   content: "";
    box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
    7px 7px 20px 0px rgba(0,0,0,.1),
    4px 4px 5px 0px rgba(0,0,0,.1);
   @apply absolute w-0 h-full top-0 right-0 z-[-1] bg-accent-600 rounded-xl ease-in duration-300
 }
-.cto-btn:hover:after {
+.btn:hover:after {
   @apply w-full left-0
 }
 
