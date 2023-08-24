@@ -28,7 +28,7 @@ export const Hero: FC<Props> = () => {
           </p>
 
           {/* cto button */}
-          <Link href="" className="btn">
+          <Link href="/contact" className="btn">
             Request a Quote
           </Link>
         </div>

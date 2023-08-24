@@ -1,4 +1,6 @@
 "use client"
+import sendMail from "@/actions/sendMail";
+import { ContactFormValues } from "@/types";
 import Lottie from "lottie-react";
 import Image from "next/image";
 import React, { FC } from "react";
@@ -6,19 +8,13 @@ import { SubmitHandler, useForm } from "react-hook-form";
 
 interface Props {}
 
-type FormValues = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
 
 export const ContactUs: FC<Props> = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+    const { register, handleSubmit, formState: { errors } } = useForm<ContactFormValues>();
     
-    const onSubmit: SubmitHandler<FormValues> = (data) => {
-        console.log(data);
+    const onSubmit: SubmitHandler<ContactFormValues> = (data) => {
+        sendMail(data);
     };
 
   return (
@@ -72,7 +68,9 @@ export const ContactUs: FC<Props> = () => {
               Email
             </label>
             <input
-              {...register("email")}
+              {...register("email",{ required: true,
+                minLength: 3,
+                validate: value => value.trim() !== ""})}
               name="email"
               placeholder='Enter your Email'
               className={`w-full bg-white rounded border shadow-inner ${errors.email ? 'border-red-500 focus:border-red-500' : 'border-gray-300'} text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
