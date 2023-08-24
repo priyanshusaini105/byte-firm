@@ -1,3 +1,4 @@
+import { handleEmail } from "@/actions";
 import Image from "next/image";
 import React, { FC } from "react";
 
@@ -14,10 +15,6 @@ export const ContactUs: FC<Props> =  async () => {
 
   console.log('I am on server')
 
-  const submitForm=(formData:FormData)=>{
-    'use server'
-    console.log(formData.get('name'))
-  }
 
   return (
     <section className="text-gray-600 body-font relative my-16 flex justify-center lg:px-32 bg-primary-100" id='contact'>
@@ -33,7 +30,7 @@ export const ContactUs: FC<Props> =  async () => {
             We'd Love to Hear from You
           </p>
 
-          <form >
+          <form action={handleEmail}>
             <div className="mb-4">
               <label htmlFor="name" className="text-sm font-medium text-gray-600 mb-1 block flex items-end gap-2">
                 <Image src='/icons/name-48.png'
