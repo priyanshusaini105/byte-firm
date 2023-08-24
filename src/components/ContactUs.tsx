@@ -1,20 +1,20 @@
-import { handleEmail } from "@/actions";
+"use client"
+import sendMail from "@/actions/sendMail";
+import { ContactFormValues } from "@/types";
+import Lottie from "lottie-react";
 import Image from "next/image";
 import React, { FC } from "react";
 
 interface Props {}
 
-type FormValues = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
 
 export const ContactUs: FC<Props> =  async () => {
 
-  console.log('I am on server')
-
+    const { register, handleSubmit, formState: { errors } } = useForm<ContactFormValues>();
+    
+    const onSubmit: SubmitHandler<ContactFormValues> = (data) => {
+        sendMail(data);
+    };
 
   return (
     <section className="text-gray-600 body-font relative my-16 flex justify-center lg:px-32 bg-primary-100" id='contact'>
@@ -66,7 +66,9 @@ export const ContactUs: FC<Props> =  async () => {
               Email
             </label>
             <input
-              // {...register("email")}
+              {...register("email",{ required: true,
+                minLength: 3,
+                validate: value => value.trim() !== ""})}
               name="email"
               placeholder='Enter your Email'
               className={`w-full bg-white rounded border shadow-inner focus:border-primary-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
