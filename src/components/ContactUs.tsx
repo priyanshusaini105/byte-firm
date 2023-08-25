@@ -11,10 +11,16 @@ interface Props {}
 
 export const ContactUs: FC<Props> = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<ContactFormValues>();
+    const { register, handleSubmit, reset,formState: { errors } } = useForm<ContactFormValues>();
     
     const onSubmit: SubmitHandler<ContactFormValues> = (data) => {
         sendMail(data);
+        reset({
+          name:'',
+          email:'',
+          subject:'',
+          message:''
+        })
     };
 
   return (
