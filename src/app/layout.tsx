@@ -19,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">      
-      <body className={`${montserrat.variable} ${nunito.variable} font-body selection:text-primary-200 selection:bg-primary-800 bg-primary-100`}><Navbar/>{children}</body>
+      <body className={`${montserrat.variable} ${nunito.variable} font-body selection:text-primary-200 selection:bg-primary-800 bg-primary-50`}><Navbar/>{children}</body>
     </html>
   )
 }
