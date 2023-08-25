@@ -1,5 +1,6 @@
 import { Navbar } from '@/components'
 import './globals.css'
+import 'react-toastify/dist/ReactToastify.min.css';
 import type { Metadata } from 'next'
 import { Nunito,Montserrat } from 'next/font/google'
 
