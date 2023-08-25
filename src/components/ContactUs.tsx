@@ -5,7 +5,9 @@ import Lottie from "lottie-react";
 import Image from "next/image";
 import React, { FC, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { Flip, ToastContainer, toast } from "react-toastify";
+import { Flip as FlipToast, ToastContainer, toast } from "react-toastify";
+const { Fade, Flip } = require("react-reveal");
+
 interface Props {}
 
 export const ContactUs: FC<Props> = () => {
@@ -30,7 +32,7 @@ export const ContactUs: FC<Props> = () => {
 
   return (
     <section
-      className="text-gray-600 body-font relative my-16 flex justify-center lg:px-32 bg-primary-100"
+      className="text-gray-600 body-font relative my-16 flex justify-center lg:px-32 bg-primary-50"
       id="contact"
     >
       <ToastContainer
@@ -43,16 +45,18 @@ export const ContactUs: FC<Props> = () => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        transition={Flip}
+        transition={FlipToast}
         theme="light"
       />
       <div className="container px-5 mx-auto flex sm:flex-nowrap flex-wrap bg-white rounded-xl shadow-lg">
-        <div className="lg:w-1/2 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
-          <Lottie
-            animationData={require("public/lottie/contactUs.json")}
-            className="absolute inset-0 w-full h-full"
-          />
-        </div>
+        <Fade left>
+          <div className="lg:w-1/2 md:w-1/2 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
+            <Lottie
+              animationData={require("public/lottie/contactUs.json")}
+              className="absolute inset-0 w-full h-full"
+            />
+          </div>
+        </Fade>
         <div className="lg:w-1/2 md:w-1/2 bg-white flex flex-col md:ml-auto w-full md:py-8 mt-8 md:mt-0">
           <h2 className="text-gray-900 text-3xl mb-2 font-semibold font-display flex items-end gap-2">
             <Image
@@ -67,174 +71,190 @@ export const ContactUs: FC<Props> = () => {
             We'd Love to Hear from You
           </p>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="mb-4">
-              <label
-                htmlFor="name"
-                className="text-sm font-medium text-gray-600 mb-1 block flex items-end gap-2"
-              >
-                <Image
-                  src="/icons/name-48.png"
-                  className="grayscale opacity-50"
-                  width={24}
-                  height={24}
-                  alt="name"
-                />
-                Your Name
-              </label>
-              <input
-                type="text"
-                {...register("name", {
-                  required: true,
-                  minLength: 3,
-                  validate: (value) => value.trim() !== "",
-                })}
-                className={`form-input ${
-                  errors.name
-                    ? "border-red-500 focus:border-red-500"
-                    : "border-gray-300"
-                }`}
-                placeholder="Enter your Name"
-              />
-              {errors.name && (
-                <span className="text-red-500 text-xs mt-1">
-                  Name is required and must be at least 3 characters
-                </span>
-              )}
-            </div>
-            {/* email */}
-            <div className="relative mb-4">
-              <label
-                htmlFor="email"
-                className="leading-7 text-sm text-gray-700 flex items-end gap-2"
-              >
-                <Image
-                  src="/icons/email-48.png"
-                  className="grayscale opacity-50"
-                  width={24}
-                  height={24}
-                  alt="email"
-                />
-                Email
-              </label>
-              <input
-                {...register("email", {
-                  required: true,
-                  minLength: 3,
-                  validate: (value) => value.trim() !== "",
-                })}
-                name="email"
-                placeholder="Enter your Email"
-                className={`form-input ${
-                  errors.email ? "border-red-500" : "focus:border-primary-300"
-                }`}
-              />
-              {errors.email && (
-                <span className="text-red-500">Email is required</span>
-              )}
-            </div>
-            <div className="relative mb-4">
-              <label
-                htmlFor="subject"
-                className="leading-7 text-sm text-gray-700 flex items-end gap-2"
-              >
-                <Image
-                  src="/icons/subject-48.png"
-                  className="grayscale opacity-50"
-                  width={24}
-                  height={24}
-                  alt="subject"
-                />
-                Subject
-              </label>
-              <input
-                {...register("subject", {
-                  required: true,
-                  validate: (value) => value.trim() !== "",
-                })}
-                name="subject"
-                placeholder="Subject"
-                className={`form-input ${
-                  errors.subject
-                    ? "border-red-500 "
-                    : "focus:border-primary-400"
-                }`}
-              />
-              {errors.subject && (
-                <span className="text-red-500">Subject is required</span>
-              )}
-            </div>
-
-            <div className="relative mb-4">
-              <label
-                htmlFor="message"
-                className="leading-7 text-sm text-gray-700 flex items-end gap-2"
-              >
-                <Image
-                  src="/icons/message-48.png"
-                  className="grayscale opacity-50"
-                  width={24}
-                  height={24}
-                  alt="message"
-                />
-                Message
-              </label>
-              <textarea
-                {...register("message", {
-                  required: true,
-                  validate: (value) => value.trim() !== "",
-                })}
-                placeholder="Enter your Message"
-                className={`form-input ${
-                  errors.message
-                    ? "border-red-500 "
-                    : "focus:border-primary-400"
-                } h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out`}
-                defaultValue={""}
-              />
-              {errors.message && (
-                <span className="text-red-500">Message is required</span>
-              )}
-            </div>
-            <button disabled={isSending} className="btn flex items-center gap-2 justify-center outline-none">
-              {/* spinner */}
-              {isSending ? (
-                <>
-                  {" "}
-                  <svg
-                    className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle
-                      className="opacity-25"
-                      cx={12}
-                      cy={12}
-                      r={10}
-                      stroke="currentColor"
-                      strokeWidth={4}
-                    />
-                    <path
-                      className="opacity-75"
-                      fill="currentColor"
-                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                    />
-                  </svg>{" "}
-                  Sending...
-                </>
-              ) : (
-                <>
+            {/* name */}
+            <Fade top>
+              <div className="mb-4">
+                <label
+                  htmlFor="name"
+                  className="text-sm font-medium text-gray-600 mb-1 block flex items-end gap-2"
+                >
                   <Image
-                    src="/icons/send-64.png"
-                    className="brightness-0 invert"
+                    src="/icons/name-48.png"
+                    className="grayscale opacity-50"
                     width={24}
                     height={24}
-                    alt="Send Message"
-                  />{" "}
-                  Send Message
-                </>
-              )}
-            </button>
+                    alt="name"
+                  />
+                  Your Name
+                </label>
+                <input
+                  type="text"
+                  {...register("name", {
+                    required: true,
+                    minLength: 3,
+                    validate: (value) => value.trim() !== "",
+                  })}
+                  className={`form-input ${
+                    errors.name
+                      ? "border-red-500 focus:border-red-500"
+                      : "border-gray-300"
+                  }`}
+                  placeholder="Enter your Name"
+                />
+                {errors.name && (
+                  <span className="text-red-500 text-xs mt-1">
+                    Name is required and must be at least 3 characters
+                  </span>
+                )}
+              </div>
+            </Fade>
+            {/* email */}
+            <Fade top>
+              <div className="relative mb-4">
+                <label
+                  htmlFor="email"
+                  className="leading-7 text-sm text-gray-700 flex items-end gap-2"
+                >
+                  <Image
+                    src="/icons/email-48.png"
+                    className="grayscale opacity-50"
+                    width={24}
+                    height={24}
+                    alt="email"
+                  />
+                  Email
+                </label>
+                <input
+                  {...register("email", {
+                    required: true,
+                    minLength: 3,
+                    validate: (value) => value.trim() !== "",
+                  })}
+                  name="email"
+                  placeholder="Enter your Email"
+                  className={`form-input ${
+                    errors.email ? "border-red-500" : "focus:border-primary-300"
+                  }`}
+                />
+                {errors.email && (
+                  <span className="text-red-500">Email is required</span>
+                )}
+              </div>
+            </Fade>
+            {/* subject */}
+            <Fade top>
+              <div className="relative mb-4">
+                <label
+                  htmlFor="subject"
+                  className="leading-7 text-sm text-gray-700 flex items-end gap-2"
+                >
+                  <Image
+                    src="/icons/subject-48.png"
+                    className="grayscale opacity-50"
+                    width={24}
+                    height={24}
+                    alt="subject"
+                  />
+                  Subject
+                </label>
+                <input
+                  {...register("subject", {
+                    required: true,
+                    validate: (value) => value.trim() !== "",
+                  })}
+                  name="subject"
+                  placeholder="Subject"
+                  className={`form-input ${
+                    errors.subject
+                      ? "border-red-500 "
+                      : "focus:border-primary-400"
+                  }`}
+                />
+                {errors.subject && (
+                  <span className="text-red-500">Subject is required</span>
+                )}
+              </div>
+            </Fade>
+            {/* message */}
+            <Fade top>
+              <div className="relative mb-4">
+                <label
+                  htmlFor="message"
+                  className="leading-7 text-sm text-gray-700 flex items-end gap-2"
+                >
+                  <Image
+                    src="/icons/message-48.png"
+                    className="grayscale opacity-50"
+                    width={24}
+                    height={24}
+                    alt="message"
+                  />
+                  Message
+                </label>
+                <textarea
+                  {...register("message", {
+                    required: true,
+                    validate: (value) => value.trim() !== "",
+                  })}
+                  placeholder="Enter your Message"
+                  className={`form-input ${
+                    errors.message
+                      ? "border-red-500 "
+                      : "focus:border-primary-400"
+                  } h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out`}
+                  defaultValue={""}
+                />
+                {errors.message && (
+                  <span className="text-red-500">Message is required</span>
+                )}
+              </div>
+            </Fade>
+
+            <Flip top>
+              <button
+                disabled={isSending}
+                className="btn flex items-center gap-2 justify-center outline-none"
+              >
+                {/* spinner */}
+                {isSending ? (
+                  <>
+                    {" "}
+                    <svg
+                      className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <circle
+                        className="opacity-25"
+                        cx={12}
+                        cy={12}
+                        r={10}
+                        stroke="currentColor"
+                        strokeWidth={4}
+                      />
+                      <path
+                        className="opacity-75"
+                        fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                      />
+                    </svg>{" "}
+                    Sending...
+                  </>
+                ) : (
+                  <>
+                    <Image
+                      src="/icons/send-64.png"
+                      className="brightness-0 invert"
+                      width={24}
+                      height={24}
+                      alt="Send Message"
+                    />{" "}
+                    Send Message
+                  </>
+                )}
+              </button>
+            </Flip>
           </form>
         </div>
       </div>
