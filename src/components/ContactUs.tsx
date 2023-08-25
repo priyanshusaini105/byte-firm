@@ -88,11 +88,11 @@ export const ContactUs: FC<Props> = () => {
                   minLength: 3,
                   validate: (value) => value.trim() !== "",
                 })}
-                className={`w-full bg-white rounded-md border shadow-inset shadow-inner focus:shadow-none duration-100 ${
+                className={`form-input ${
                   errors.name
                     ? "border-red-500 focus:border-red-500"
                     : "border-gray-300"
-                } focus:border-primary-500 text-base outline-none text-gray-700 py-2 px-4 leading-8 transition-colors duration-200 ease-in-out`}
+                }`}
                 placeholder="Enter your Name"
               />
               {errors.name && (
@@ -124,9 +124,9 @@ export const ContactUs: FC<Props> = () => {
                 })}
                 name="email"
                 placeholder="Enter your Email"
-                className={`w-full bg-white rounded border shadow-inner focus:shadow-none duration-100 ${
+                className={`form-input ${
                   errors.email ? "border-red-500" : "focus:border-primary-300"
-                } text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
+                }`}
               />
               {errors.email && (
                 <span className="text-red-500">Email is required</span>
@@ -153,11 +153,11 @@ export const ContactUs: FC<Props> = () => {
                 })}
                 name="subject"
                 placeholder="Subject"
-                className={`w-full bg-white rounded border shadow-inner focus:shadow-none duration-100 ${
+                className={`form-input ${
                   errors.subject
                     ? "border-red-500 "
                     : "focus:border-primary-400"
-                } text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out`}
+                }`}
               />
               {errors.subject && (
                 <span className="text-red-500">Subject is required</span>
@@ -184,7 +184,7 @@ export const ContactUs: FC<Props> = () => {
                   validate: (value) => value.trim() !== "",
                 })}
                 placeholder="Enter your Message"
-                className={`w-full bg-white rounded border shadow-inner focus:shadow-none duration-100 ${
+                className={`form-input ${
                   errors.message
                     ? "border-red-500 "
                     : "focus:border-primary-400"
