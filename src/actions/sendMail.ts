@@ -124,7 +124,7 @@ export default async function sendMail(contactFormValues: ContactFormValues) {
 
     // Send reply email to the client
     const mailInfo = await transporter.sendMail({
-      from: "Your Name <your@email.com>",
+      from: "bytefirmwork@gmail.com",
       to: `${contactFormValues.email}`,
       subject: "Re: " + contactFormValues.subject,
       text: "Thank you for reaching out!",
