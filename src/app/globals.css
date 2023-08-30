@@ -55,4 +55,38 @@
 .form-input{
   @apply  w-full bg-white rounded-lg border shadow-inner focus:shadow-none duration-100 focus:border-primary-500 text-base outline-none text-gray-700 py-2 px-4 leading-8 duration-200 ease-in-out bg-primary-50;
 }
+
+.book {
+  -webkit-box-shadow: 1px 1px 12px #000;
+  -webkit-transform: preserve-3d;
+  -ms-transform: preserve-3d;
+  transform: preserve-3d;
+  -webkit-perspective: 2000px;
+  perspective: 2000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+}
+.cover {
+  -webkit-transition: all 0.5s;
+  -webkit-transform-origin: 0;
+  -ms-transform-origin: 0;
+  -webkit-box-shadow: 1px 1px 12px #000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+}
+.book:hover .cover {
+  @apply transition-all duration-[0.5s];
+  -webkit-transition: all 0.5s;
+  -webkit-transform: rotatey(-80deg);
+  -ms-transform: rotatey(-80deg);
+  transform: rotatey(-80deg);
+}
 }

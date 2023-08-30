@@ -3,32 +3,17 @@
 import React from "react";
 import Image from "next/image";
 
+const projects=[{
+  id:'22',
+  
+}]
+
 function Item(params: any) {
   return (
-    <div
-      className="relative h-60 w-[80%] mx-auto shadow-[0px_20px_20px_10px_#00000024] rounded-lg  bg-yellow-600 overflow-hidden"
-      onMouseEnter={() => {
-        var item = document.getElementById(params.id);
-        item?.classList.toggle("-mt-40");
-      }}
-      onMouseLeave={() => {
-        var item = document.getElementById(params.id);
-        item?.classList.toggle("-mt-40");
-      }}
-    >
-      <div className="w-[80vw] mx-auto h-48 bg-primary-200  rounded-t-lg shadow-[inset_-12px_-8px_40px_#46464620] p-10">
-        <Image src={params.image} quality={100} layout="fill" alt="" />
-        <div className="w-[90%] h-[90%] bg-black">g</div>
-      </div>
-      <div
-        id={params.id}
-        className="relative w-[100%] mx-auto h-12 py-3 text-white opacity-95 text-xl text-center  transition-all bg-accent-500 shadow-[inset_-12px_-8px_40px_#46464620]] "
-      >
-        {params.name}
-      </div>
-      <div className="relative w-full h-full bg-white text-primary-900 justify-center text-left opacity-95 px-8 py-5 text-xl shadow-[inset_-12px_-8px_40px_#46464620] ">
-        {params.text}
-        This is the sample text of the project that i Made years ago.
+    <div className="relative w-56 h-[300px] bg-[whitesmoke] shadow-[1px_1px_12px_#000] flex items-center justify-center text-black rounded-[10px] book">
+      <p>Hello</p>
+      <div className="cover absolute bg-[lightgray] w-full h-full cursor-pointer transition-all duration-[0.5s] origin-[0] shadow-[1px_1px_12px_#000] flex items-center justify-center rounded-[10px] top-0 ">
+        <p>Hover Me</p>
       </div>
     </div>
   );
@@ -47,16 +32,11 @@ export function Projects() {
             height={48}
             alt="Projects"
             className="inline-block w-12 h-12"
-        />
+          />
         </div>
-        <div className="w-[90%] mx-auto rounded-lg bg-accent-500 h-4 shadow-2xl shadow-blue-500/20 "></div>
-        <div className=" grid md:grid-cols-2 lg:grid-cols-3 gap-20">
+        <div className="w-9/10 mx-auto rounded-lg bg-accent-500 h-4 shadow-2xl shadow-blue-500/20 "></div>
+        <div className="flex flex-wrap gap-8 justify-center">
           <Item image="/flipkartmern.png" name="Next JS app" id="info1" />
-          <Item image="/flipkartmern.png" name="Next JS app" id="info2" />
-          <Item image="/flipkartmern.png" name="Next JS app" id="info3" />
-          <Item image="/flipkartmern.png" name="Next JS app" id="info4" />
-          <Item image="/flipkartmern.png" name="Next JS app" id="info6" />
-          <Item image="/flipkartmern.png" name="Next JS app" id="info5" />
         </div>
       </div>
     </div>
