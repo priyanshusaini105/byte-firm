@@ -3,21 +3,25 @@
 import React from "react";
 import Image from "next/image";
 
-const projects=[{
-  id:'22',
-  
-}]
-
-function Item(params: any) {
-  return (
-    <div className="relative w-56 h-[300px] bg-[whitesmoke] shadow-[1px_1px_12px_#000] flex items-center justify-center text-black rounded-[10px] book">
-      <p>Hello</p>
-      <div className="cover absolute bg-[lightgray] w-full h-full cursor-pointer transition-all duration-[0.5s] origin-[0] shadow-[1px_1px_12px_#000] flex items-center justify-center rounded-[10px] top-0 ">
-        <p>Hover Me</p>
-      </div>
-    </div>
-  );
+type Project={
+  id:string,
+  title:string,
+  img:string,
+  desc:string
+  techs:string[],
+  url?:string
 }
+
+const projects:Project[] = [
+  {
+    id: "1",
+    title: "Wordcraft",
+    img:'wordcraft.png',
+    desc:'Wordcraft is a blog website where anyone can start posting their blogs by creating their own account.',
+    techs:['Next Js','Firebase','React Js','Tailwind CSS'],
+    url:'https://wordcraft-blog.vercel.app/'
+  },
+];
 
 export function Projects() {
   return (
@@ -36,7 +40,22 @@ export function Projects() {
         </div>
         <div className="w-9/10 mx-auto rounded-lg bg-accent-500 h-4 shadow-2xl shadow-blue-500/20 "></div>
         <div className="flex flex-wrap gap-8 justify-center">
-          <Item image="/flipkartmern.png" name="Next JS app" id="info1" />
+          {projects.map((project) => (
+            <div key={project.id} className="relative w-56 h-[300px] bg-[whitesmoke] shadow-xl flex items-center justify-center text-black rounded-[10px] book bg">
+              
+
+              <div className="cover absolute bg-[lightgray] w-full h-full cursor-pointer transition-all duration-500 shadow-xl flex items-center justify-center rounded-[10px] top-0 flex flex-col">
+                <p>{project.title}</p>
+                <Image
+                 src={'/images/projects/'+project.img}
+                 alt=''
+                 width={280}
+                 height={480}
+                 className='w-full'
+                 />
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
