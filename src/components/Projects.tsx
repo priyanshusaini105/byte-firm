@@ -46,10 +46,10 @@ export function Projects() {
               className="relative w-56 h-[300px] bg-[whitesmoke] shadow-xl flex items-center justify-center text-black rounded-[10px] book bg"
             >
               <div className="absolute top-0 left-0 w-9/10 h-full bg-[whitesmoke] bg-opacity-80 flex flex-col items-center justify-center gap-4 p-4 rounded-[10px] transition-all duration-500 opacity-0 hover:opacity-100 ml-4">
-                <p className="text-xl font-bold font-display">
+                <p className="text-xl font-bold font-display underline">
                   {project.title}
                 </p>
-                <p className="text-sm">{project.desc}</p>
+                <p className="text-sm text-gray-600">{project.desc}</p>
                 <div className="flex flex-wrap gap-2">
                   {project.techs.map((tech) => (
                     <div
