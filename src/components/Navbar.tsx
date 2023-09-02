@@ -5,7 +5,6 @@ import Link from "next/link";
 import { useState, useEffect, useRef, ChangeEvent } from "react";
 import { usePathname } from "next/navigation";
 import { Hamburgur } from ".";
-const Slide = require("react-reveal/slide");
 
 export function Navbar() {
   const [isAsideOpen, setIsAsideOpen] = useState(false);
