@@ -54,7 +54,7 @@ export function Projects() {
                   {project.techs.map((tech) => (
                     <div
                       key={tech}
-                      className="bg-accent-500 text-black px-2 py-1 rounded-md text-sm"
+                      className="bg-accent-500 text-black px-2 py-1 rounded-md text-xs"
                     >
                       {tech}
                     </div>
@@ -68,6 +68,13 @@ export function Projects() {
                     className="bg-primary-500 text-white px-2 py-1 rounded-md text-sm"
                   >
                     Visit
+                    <Image
+                    src='/icons/send-64.png'
+                    width={24}
+                    height={24}
+                    alt="External Link"
+                    className="inline-block w-4 h-4 ml-1 my-auto"
+                  />
                   </a>
                 )}
               </div>
