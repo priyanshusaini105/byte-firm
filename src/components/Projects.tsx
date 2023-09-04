@@ -73,21 +73,15 @@ export function Projects() {
                     width={24}
                     height={24}
                     alt="External Link"
-                    className="inline-block w-4 h-4 ml-1 my-auto"
+                    className="inline-block w-4 h-4 ml-1 my-auto brightness-0 invert"
                   />
                   </a>
                 )}
               </div>
 
               <div className="cover absolute bg-[lightgray] w-full h-full cursor-pointer transition-all duration-500 shadow-xl flex items-center justify-center rounded-[10px] top-0 flex flex-col">
-                <p>{project.title}</p>
-                <Image
-                  src={"/images/projects/" + project.img}
-                  alt=""
-                  width={280}
-                  height={480}
-                  className="w-full"
-                />
+                {/* show title and image */}
+                
               </div>
             </div>
           ))}
