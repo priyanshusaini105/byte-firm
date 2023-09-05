@@ -60,6 +60,7 @@ export function Projects() {
                     </div>
                   ))}
                 </div>
+                
                 {project.url && (
                   <a
                     href={project.url}
@@ -80,8 +81,18 @@ export function Projects() {
               </div>
 
               <div className="cover absolute bg-[lightgray] w-full h-full cursor-pointer transition-all duration-500 shadow-xl flex items-center justify-center rounded-[10px] top-0 flex flex-col">
-                {/* show title and image */}
-                
+                <div className="w-full h-full flex flex-col items-center justify-center gap-4 p-2">
+                  <p className="text-xl font-bold font-display underline">
+                    {project.title}
+                  </p>
+                  <Image
+                    src={`/images/projects/${project.img}`}
+                    width={200}
+                    height={200}
+                    alt={project.title}
+                    className="rounded-lg border-2 border-accent-400 w-full"
+                  />
+                </div>
               </div>
             </div>
           ))}
