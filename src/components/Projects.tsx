@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import Popup from "reactjs-popup";
 
 type Project = {
   id: string;
@@ -60,7 +61,45 @@ export function Projects() {
                     </div>
                   ))}
                 </div>
-                
+                {/* blur background  */}
+                    {/* <div
+                    className='bg-black/30 absolute w-screen h-screen '
+                    /> */}
+
+                <Popup
+                  trigger={
+                    <button className="bg-primary-500 text-white px-2 py-1 rounded-md text-sm">
+                      Preview
+                    </button>
+                  }
+                  modal
+                  lockScroll
+                  onOpen
+                >
+                 
+                    {(close: any) => {
+                       return (
+                       <>
+                        <div className="w-[60vw] h-[60vh] flex items-center justify-center">
+                          <button
+                            className="cursor-pointer absolute block leading-5 text-2xl border px-[5px] py-0.5 rounded-[18px] border-solid border-primary-800 bg-primary-200 -right-2.5 -top-2.5"
+                            onClick={close}
+                          >
+                            &times;
+                          </button>
+                          <Image
+                            src={`/images/projects/${project.img}`}
+                            width={500}
+                            height={500}
+                            alt={project.title}
+                            className="rounded-lg border-2 border-accent-400 w-full"
+                          />
+                        </div>
+                      </>
+                    )}}
+                  
+                </Popup>
+
                 {project.url && (
                   <a
                     href={project.url}
@@ -70,12 +109,12 @@ export function Projects() {
                   >
                     Visit
                     <Image
-                    src='/icons/send-64.png'
-                    width={24}
-                    height={24}
-                    alt="External Link"
-                    className="inline-block w-4 h-4 ml-1 my-auto brightness-0 invert"
-                  />
+                      src="/icons/send-64.png"
+                      width={24}
+                      height={24}
+                      alt="External Link"
+                      className="inline-block w-4 h-4 ml-1 my-auto brightness-0 invert"
+                    />
                   </a>
                 )}
               </div>
