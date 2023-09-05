@@ -10,7 +10,8 @@ type Project = {
   img: string;
   desc: string;
   techs: string[];
-  url?: string;
+  url?: string;  //optional
+  type:'Web'|'App';
 };
 
 const projects: Project[] = [
@@ -21,11 +22,16 @@ const projects: Project[] = [
     desc: "Wordcraft is a blog website where anyone can start posting their blogs by creating their own account.",
     techs: ["Next Js", "Firebase", "React Js", "Tailwind CSS"],
     url: "https://wordcraft-blog.vercel.app/",
+    type:'Web'
   },
   {
     id: "2",
-    title:'KiddieMart'
-  }
+    title:'KiddieMart',
+    img:'kiddiemart.png',
+    desc:'KiddieMart is a E-commerce website which provides the products like toys and cloths for kids.',
+    techs:['Next Js','PosgresSQL','Tailwind CSS', 'GraphQL','Strapi'],
+    type:'Web'
+  },
 ];
 
 export function Projects() {
@@ -88,8 +94,8 @@ export function Projects() {
                         </button>
                         <Image
                           src={`/images/projects/${project.img}`}
-                          width={500}
-                          height={500}
+                          width={800}
+                          height={800}
                           alt={project.title}
                           className="rounded-lg border-2 border-accent-400 w-full"
                         />
@@ -120,7 +126,7 @@ export function Projects() {
 
             <div className="cover absolute bg-[lightgray] w-full h-full cursor-pointer transition-all duration-500 shadow-xl flex items-center justify-center rounded-[10px] top-0 flex flex-col">
               <div className="w-full h-full flex flex-col items-center justify-center gap-4 p-2">
-                <p className="text-xl font-bold font-display underline">
+                <p className="text-2xl font-bold font-display underline">
                   {project.title}
                 </p>
                 <Image
@@ -130,6 +136,7 @@ export function Projects() {
                   alt={project.title}
                   className="rounded-lg border-2 border-accent-400 w-full"
                 />
+                <span className={`p-1 px-2 text-sm ${project.type==='Web'?'bg-purple-200 text-purple-500':'bg-pink-200 text-pink-500'} rounded-lg`}>{project.type}</span>
               </div>
             </div>
           </div>
