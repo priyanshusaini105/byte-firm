@@ -10,8 +10,8 @@ type Project = {
   img: string;
   desc: string;
   techs: string[];
-  url?: string;  //optional
-  type:'Web'|'App';
+  url?: string; //optional
+  type: "Web" | "App";
 };
 
 const projects: Project[] = [
@@ -22,21 +22,29 @@ const projects: Project[] = [
     desc: "Wordcraft is a blog website where anyone can start posting their blogs by creating their own account.",
     techs: ["Next Js", "Firebase", "React Js", "Tailwind CSS"],
     url: "https://wordcraft-blog.vercel.app/",
-    type:'Web'
+    type: "Web",
   },
   {
     id: "2",
-    title:'KiddieMart',
-    img:'kiddiemart.png',
-    desc:'KiddieMart is a E-commerce website which provides the products like toys and cloths for kids.',
-    techs:['Next Js','PosgresSQL','Tailwind CSS', 'GraphQL','Strapi'],
-    type:'Web'
+    title: "KiddieMart",
+    img: "kiddiemart.png",
+    desc: "KiddieMart is a E-commerce website which provides the products like toys and cloths for kids.",
+    techs: ["Next Js", "PosgresSQL", "Tailwind CSS", "GraphQL", "Strapi"],
+    type: "Web",
+  },
+  {
+    id: "3",
+    title: "College Erp App",
+    img: "college-erp-app.jpg",
+    desc: "College Erp App is a mobile application which is used to manage the college activities like attendance, marks, etc.",
+    techs: ["React Native", "Firebase", "Redux", "Node Js", "Express Js"],
+    type: "App",
   },
 ];
 
 export function Projects() {
   return (
-    <div className="w-screen h-fit py-20 mt-40 bg-primary-800 text-gray-600 flex flex-col gap-20 ">
+    <div className="py-20 mt-40 bg-primary-800 text-gray-600 flex flex-col gap-2 ">
       <div className="w-full h-5 flex justify-center font-bold p-4 text-4xl gap-2 items-end">
         <span className="text-primary-400 mr-2 ">What We've </span>
         <span className="text-accent-400">Built</span>
@@ -48,7 +56,7 @@ export function Projects() {
           className="inline-block w-12 h-12"
         />
       </div>
-      <div className="w-9/10 mx-auto rounded-lg bg-accent-500 h-4 shadow-2xl shadow-blue-500/20 "></div>
+
       <div className="flex flex-wrap gap-8 justify-center">
         {projects.map((project) => (
           <div
@@ -79,8 +87,12 @@ export function Projects() {
                 }
                 modal
                 lockScroll
-                onOpen={() => document.getElementById("blur")?.classList.toggle("hidden")}
-                onClose={() => document.getElementById("blur")?.classList.toggle("hidden")}
+                onOpen={() =>
+                  document.getElementById("blur")?.classList.toggle("hidden")
+                }
+                onClose={() =>
+                  document.getElementById("blur")?.classList.toggle("hidden")
+                }
               >
                 {(close: any) => {
                   return (
@@ -97,7 +109,7 @@ export function Projects() {
                           width={800}
                           height={800}
                           alt={project.title}
-                          className="rounded-lg border-2 border-accent-400 w-full"
+                          className="rounded-lg border-2 border-accent-400 w-auto h-full"
                         />
                       </div>
                     </>
@@ -134,9 +146,17 @@ export function Projects() {
                   width={200}
                   height={200}
                   alt={project.title}
-                  className="rounded-lg border-2 border-accent-400 w-full"
+                  className="rounded-lg border-2 border-accent-400 max-h-[12rem]"
                 />
-                <span className={`p-1 px-2 text-sm ${project.type==='Web'?'bg-purple-200 text-purple-500':'bg-pink-200 text-pink-500'} rounded-lg`}>{project.type}</span>
+                <span
+                  className={`p-1 px-2 text-sm ${
+                    project.type === "Web"
+                      ? "bg-purple-200 text-purple-500"
+                      : "bg-pink-200 text-pink-500"
+                  } rounded-lg`}
+                >
+                  {project.type}
+                </span>
               </div>
             </div>
           </div>
