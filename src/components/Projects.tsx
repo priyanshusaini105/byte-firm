@@ -44,10 +44,8 @@ const projects: Project[] = [
 
 export function Projects() {
   return (
-    <div className="py-20 mt-40 bg-primary-800 text-gray-600 flex flex-col gap-2 ">
+    <section className="py-20 mt-40 bg-primary-800 text-gray-600 flex flex-col gap-2 ">
       <div className="w-full h-5 flex justify-center font-bold p-4 text-4xl gap-2 items-end">
-        <span className="text-primary-400 mr-2 ">What We've </span>
-        <span className="text-accent-400">Built</span>
         <Image
           src="/icons/project-48.png"
           width={48}
@@ -55,6 +53,8 @@ export function Projects() {
           alt="Projects"
           className="inline-block w-12 h-12"
         />
+        <span className="text-primary-400 mr-2 ">What We've </span>
+        <span className="text-accent-400">Built</span>
       </div>
 
       <div className="flex flex-wrap gap-8 justify-center">
@@ -162,6 +162,6 @@ export function Projects() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
